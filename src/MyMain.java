@@ -8,5 +8,7 @@
  * @author 343079463
  */
 public class MyMain {
-    AlgorithmCase algo = new AlgorithmCase ( )
+    public static void MyMain (String [] args){
+        AlgorithmCase algo = new AlgorithmCase ( )
+    }
 }

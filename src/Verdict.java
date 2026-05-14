@@ -46,7 +46,7 @@ public class Verdict {
     }
     
     public String toString() {
-        return caseName + studentVerdict + reason;
+        return "Name: " + caseName + " Verdict: " + studentVerdict + " Reason: " + reason;
     }
     
 }

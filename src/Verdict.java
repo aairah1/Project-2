@@ -16,7 +16,7 @@ public class Verdict {
         this.studentVerdict = "empty";
     }
     
-    public Verdict(String caseName, String verdict) {
+    public Verdict(String caseName, String verdict, String reason) {
         this.caseName = caseName;
         this.studentVerdict = studentVerdict;
     }

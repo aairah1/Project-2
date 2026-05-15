@@ -8,7 +8,10 @@
  * @author 343079463
  */
 public class MyMain {
-    public static void MyMain (String [] args){
-        AlgorithmCase algo = new AlgorithmCase ( )
+    public static void main (String [] args){
+        AlgorithmCase algo = new AlgorithmCase ("Algorithm Case", "The Biased Hiring Bot", "Gender Bias");
+        IntellectualPropertyCase intel = new IntellectualPropertyCase ("Intellectual Prperty Case", "AI Trained on Artist Work", "");
+     //   EthicsCase ethic = new EthicsCase ("Ethics Case", "");
     }
-}
+    
+    

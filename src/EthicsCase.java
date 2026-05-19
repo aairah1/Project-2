@@ -17,7 +17,7 @@ public class EthicsCase {
         this.caseTitle = caseTitle;
         this.description = description;
         this.catergory = catergory;
-        Verdict verdict = new Verdict();
+        this.verdict = new Verdict();
     }
     
     public String getCaseTitle(){

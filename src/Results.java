@@ -20,16 +20,13 @@ public class Results extends javax.swing.JFrame {
         jLabel4.setText("" + MainMenu.unethical);
         
         if (MainMenu.unethical < 2){
-            jTextArea1.setText()
-        }
-        else if (MainMenu.unethical =< 4 && MainMenu.unethical > 2){
-            jTextArea1.setText()
-        }
-        else if (MainMenu.unethical =< 6 && MainMenu.unethical > 4){
-            jTextArea1.setText()
-        }
-        else if (MainMenu.unethical =< 8 && MainMenu.unethical > 6){
-            jTextArea1.setText()
+            jTextArea1.setText("The Tech Optimist" + "\n You see technology as largely a force for good. You tend to trust that companies and developers have good intentions.");
+        } else if ((MainMenu.unethical <= 4) && (MainMenu.unethical > 2)){
+            jTextArea1.setText("The Cautious Realist" + "\n You see both the benefits and dangers of technology. You believe progress is good, but needs rules and accountability.");
+        } else if ((MainMenu.unethical <= 6) && (MainMenu.unethical > 4)){
+            jTextArea1.setText("The Critical Thinker" + "\n You are skeptical of how technology is being used. You believe the tech industry needs serious reform to protect people.");
+        } else if ((MainMenu.unethical <= 8) && (MainMenu.unethical > 6)){
+            jTextArea1.setText(" The Ethics Watchdog" + "\n You believe technology is causing more harm than good right now. You think strong laws and ethical standards are urgently needed.");
         }
     }
 
@@ -54,6 +51,8 @@ public class Results extends javax.swing.JFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setToolTipText("");
+        jTextArea1.setWrapStyleWord(true);
         jScrollPane1.setViewportView(jTextArea1);
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 2, 12)); // NOI18N
@@ -124,6 +123,8 @@ public class Results extends javax.swing.JFrame {
         jTextArea1.setBackground(null); // make the backround null
         jTextArea1.setOpaque(false); // make the background not opaque
         jTextArea1.setBorder(null); // make the borders null
+        jTextArea1.setLineWrap(true);
+        jTextArea1.setWrapStyleWord(true);
     } // close the method
     
     /**

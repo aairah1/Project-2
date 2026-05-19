@@ -160,6 +160,16 @@ public class Scenario4 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        MainMenu.cases[3].verdict.setCaseName(jLabel2.getText());
+        MainMenu.cases[3].verdict.setReason(jTextArea2.getText());
+        if (jRadioButton1.isSelected()) {
+            MainMenu.cases[3].verdict.setStudentVerdict("Ethical");
+            MainMenu.ethical += 1
+        } else if (jRadioButton2.isSelected()) {
+            MainMenu.cases[3].verdict.setStudentVerdict("Unethical");
+            MainMenu.unethical += 1
+        }
+        
         new Scenario5().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed

@@ -12,7 +12,7 @@ public class AlgorithmCase extends EthicsCase {
     private String biasType;
     
     public AlgorithmCase (String caseTitle, String description, String biasType) {
-        super (caseTitle, description, "Algorithm");
+        super (caseTitle, description, "Algorithm Bias and Fairness");
         this.biasType = biasType;
     }
     

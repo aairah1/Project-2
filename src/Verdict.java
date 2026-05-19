@@ -21,7 +21,7 @@ public class Verdict {
         this.studentVerdict = studentVerdict;
     }
     
-    public void setCaseName() {
+    public void setCaseName(String title) {
         this.caseName = caseName;
     }
     
@@ -29,7 +29,7 @@ public class Verdict {
         return caseName;
     }
     
-    public void setReason() {
+    public void setReason(String reason) {
         this.reason = reason;
     }
     
@@ -37,7 +37,7 @@ public class Verdict {
         return reason;
     }
     
-    public void setStudentVerdict() {
+    public void setStudentVerdict(String verdict) {
         this.studentVerdict = studentVerdict;
     }
     

@@ -11,7 +11,7 @@ public class IntellectualPropertyCase extends EthicsCase{
     private String ipType;
     
     public IntellectualPropertyCase (String caseTitle, String description, String ipType) {
-        super(caseTitle, description, "Intellectual Property");
+        super(caseTitle, description, "Intellectual Property and Digital Ownership");
         this.ipType = ipType;
     }
     

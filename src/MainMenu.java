@@ -9,6 +9,8 @@
  */
 public class MainMenu extends javax.swing.JFrame {
 public static EthicsCase[] cases = new EthicsCase[8];
+public static int unethical = 0;
+public static int ethical = 0;
     
     /**
      * Creates new form MainMenu

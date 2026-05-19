@@ -163,8 +163,10 @@ public class Scenario7 extends javax.swing.JFrame {
         MainMenu.cases[6].verdict.setReason(jTextArea2.getText());
         if (jRadioButton1.isSelected()) {
             MainMenu.cases[6].verdict.setStudentVerdict("Ethical");
+            MainMenu.ethical +=1;
         } else if (jRadioButton2.isSelected()) {
             MainMenu.cases[6].verdict.setStudentVerdict("Unethical");
+            MainMenu.unethical += 1;
         }
         
         new Scenario8().setVisible(true);

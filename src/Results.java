@@ -14,6 +14,23 @@ public class Results extends javax.swing.JFrame {
      */
     public Results() {
         initComponents();
+        formatTextArea();
+        
+        jLabel3.setText("" + MainMenu.ethical);
+        jLabel4.setText("" + MainMenu.unethical);
+        
+        if (MainMenu.unethical < 2){
+            jTextArea1.setText()
+        }
+        else if (MainMenu.unethical =< 4 && MainMenu.unethical > 2){
+            jTextArea1.setText()
+        }
+        else if (MainMenu.unethical =< 6 && MainMenu.unethical > 4){
+            jTextArea1.setText()
+        }
+        else if (MainMenu.unethical =< 8 && MainMenu.unethical > 6){
+            jTextArea1.setText()
+        }
     }
 
     /**
@@ -102,6 +119,13 @@ public class Results extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+        public void formatTextArea() { // create a method to format the text area (no return and no parameter) 
+        jTextArea1.setEditable(false); // make it uneditable
+        jTextArea1.setBackground(null); // make the backround null
+        jTextArea1.setOpaque(false); // make the background not opaque
+        jTextArea1.setBorder(null); // make the borders null
+    } // close the method
+    
     /**
      * @param args the command line arguments
      */

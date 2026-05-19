@@ -15,28 +15,53 @@ public static EthicsCase[] cases = new EthicsCase[8];
      */
     public MainMenu() {
         initComponents();
-        cases[0] = new PrivacyCase("Privacy Case", "The Always-On Microphone" +
+        cases[0] = new PrivacyCase("The Always-On Microphone", 
                 "A smart speaker company recorded household conversations even when " + 
                 "the device was not activated. Employees reviewed the recordings.", 
-                "audio recordings"
+                "Audio Recordings"
         );
         
-        cases[1] = new AlgorithmCase("Algorithm Case", "The Biased Hiring Bot" + 
+        cases[1] = new AlgorithmCase("The Biased Hiring Bot",  
                 "A tech company's AI screening tool ranked male applicants higher " +
                 "than equally qualified female applicants.",
-                "gender bias"
+                "Gender Bias"
         );
         
-        cases[2] = new MisinformationCase("Misinformation Case", "The Deepfake Politician" + 
+        cases[2] = new MisinformationCase("The Deepfake Politician", 
                 "A deepfake video of a candidate saying things they never said spread widely " +
                 "online during an election before being identified as fake.",
                 "deepfake video"
         );
         
-        cases[3] = new IntellectualPropertyCase("Intellectual Property Case", "AI Trained on Artist Work" +
+        cases[3] = new IntellectualPropertyCase("AI Trained on Artist Work" ,
                 "An AI image generator was trained on millions of artworks scraped without permission. " + 
                 "Artists receive no credit or payment.",
                 "AI-generated art"
+        );
+        
+        cases[4] = new PrivacyCase("The Fitness App Leak" ,
+                "A fitness app accidentally exposed users’ location data, "+
+                "revealing sensitive information such as home addresses and"+
+                "military base activity.", "Location tracking"
+        );
+        
+        cases[5] = new AlgorithmCase ("The Unequal Loan System",
+                "A bank’s AI loan approval system gave lower credit scores" +
+                "and higher rejection rates to applicants from certain racial communities.",
+                "Racial bias"
+        );
+        
+        cases[6] = new MisinformationCase ("The Fake Health Rumor",
+                "Viral posts online falsely claimed that a common vaccine caused"+
+                "severe illnesses, leading many people to avoid vaccination"+
+                "before experts corrected the misinformation.",
+                "False social media posts"
+        );
+        
+        cases[7] = new IntellectualPropertyCase ("The Stolen Voice Clone",
+                "An AI company copied a famous voice actor’s recordings"+
+                " to create a synthetic voice without consent or compensation.",
+                "AI voice replication"
         );
     }
 
@@ -59,18 +84,29 @@ public static EthicsCase[] cases = new EthicsCase[8];
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setText("Ethics Evaluator");
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
         jLabel2.setText("Where do you stand on this scale?");
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 2, 12)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 102, 102));
         jLabel3.setText("A Tech Optimist");
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 2, 12)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(102, 0, 102));
         jLabel4.setText("A Cautious Realist");
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 2, 12)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 102, 51));
         jLabel5.setText("A Critical Thinker");
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 2, 12)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 102));
         jLabel6.setText("A Ethics Watchdog");
 
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton1.setText("Start Evaluator");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,11 +131,13 @@ public static EthicsCase[] cases = new EthicsCase[8];
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jButton1)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel3)
                                 .addComponent(jLabel5)
-                                .addComponent(jLabel6)))))
-                .addContainerGap(113, Short.MAX_VALUE))
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel6))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(158, 158, 158)
+                        .addComponent(jLabel3)))
+                .addContainerGap(128, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -118,7 +156,7 @@ public static EthicsCase[] cases = new EthicsCase[8];
                 .addComponent(jLabel6)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         pack();

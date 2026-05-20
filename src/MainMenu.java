@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-
+import java.io.File;
+import java.util.Scanner;
+import java.io.IOException;
 /**
  *
  * @author 345730287
@@ -17,54 +19,27 @@ public static int ethical = 0;
      */
     public MainMenu() {
         initComponents();
-        cases[0] = new PrivacyCase("The Always-On Microphone", 
-                "A smart speaker company recorded household conversations even when " + 
-                "the device was not activated. Employees reviewed the recordings.", 
-                "Audio Recordings"
-        );
-        
-        cases[1] = new AlgorithmCase("The Biased Hiring Bot",  
-                "A tech company's AI screening tool ranked male applicants higher " +
-                "than equally qualified female applicants.",
-                "Gender Bias"
-        );
-        
-        cases[2] = new MisinformationCase("The Deepfake Politician", 
-                "A deepfake video of a candidate saying things they never said spread widely " +
-                "online during an election before being identified as fake.",
-                "deepfake video"
-        );
-        
-        cases[3] = new IntellectualPropertyCase("AI Trained on Artist Work" ,
-                "An AI image generator was trained on millions of artworks scraped without permission. " + 
-                "Artists receive no credit or payment.",
-                "AI-generated art"
-        );
-        
-        cases[4] = new PrivacyCase("The Fitness App Leak" ,
-                "A fitness app accidentally exposed users’ location data, "+
-                "revealing sensitive information such as home addresses and"+
-                "military base activity.", "Location tracking"
-        );
-        
-        cases[5] = new AlgorithmCase ("The Unequal Loan System",
-                "A bank’s AI loan approval system gave lower credit scores" +
-                "and higher rejection rates to applicants from certain racial communities.",
-                "Racial bias"
-        );
-        
-        cases[6] = new MisinformationCase ("The Fake Health Rumor",
-                "Viral posts online falsely claimed that a common vaccine caused"+
-                "severe illnesses, leading many people to avoid vaccination"+
-                "before experts corrected the misinformation.",
-                "False social media posts"
-        );
-        
-        cases[7] = new IntellectualPropertyCase ("The Stolen Voice Clone",
-                "An AI company copied a famous voice actor’s recordings"+
-                " to create a synthetic voice without consent or compensation.",
-                "AI voice replication"
-        );
+        try {
+            Scanner fileinput = new Scanner (new File ("cases"));
+            int count = 0;
+            while (fileinput.hasNext()){
+                String output = fileinput.nextLine();
+                String info [] = output.split(",");  
+                if (info[0].equals("Privacy Case")){
+                    cases [count] = new PrivacyCase (info[1].trim(), info[3].trim(), info[2].trim());
+                } else if (info[0].equals("Misinformation Case")){
+                    cases [count] = new MisinformationCase (info[1].trim(), info[3].trim(), info[2].trim());
+                } else if (info[0].equals("Intellectual Property Case")){
+                    cases [count] = new IntellectualPropertyCase (info[1].trim(), info[3].trim(), info[2].trim());
+                } else if (info[0].equals("Algorithm Case")){
+                    cases [count] = new AlgorithmCase (info[1].trim(), info[3].trim(), info[2].trim());
+                }
+                count++;
+            }
+            fileinput.close();
+        } catch (IOException ioException) {
+            System.out.print("Error: IO Exception");
+        }
     }
 
     /**

@@ -41,6 +41,22 @@ public static int ethical = 0;
             System.out.print("Error: IO Exception");
         }
     }
+    
+    public class MainMenu extends javax.swing.JFrame {
+    public static void main (String[] args) {
+        String caseName = " ";
+        String studentVerdict = " ";
+        String reason = " ";
+        try {
+            FileWriter writer = new FileWriter ("cases", true);
+            PrintWriter output = new PrintWriter (writer);
+            output.printf("Case: %s | Verdict: %s | Reason: %s\n", caseName, studentVerdict, reason);
+            output.close();
+        } catch (IOException ioException) {
+            System.err.println("Java Exception: " + ioException);
+        }
+        }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

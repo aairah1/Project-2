@@ -9,18 +9,32 @@
  */
 public class AlgorithmCase extends EthicsCase {
     
-    private String biasType;
+    private String biasType; // Instance variable to store the bias type
     
-    public AlgorithmCase (String caseTitle, String description, String biasType) {
-        super (caseTitle, description, "Algorithm Bias and Fairness");
-        this.biasType = biasType;
+    /**
+     * Constructor with the title, description, and bias type
+     * @param caseTitle
+     * @param description
+     * @param biasType 
+     */
+    public AlgorithmCase (String caseTitle, String description, String biasType) { // Calls constuctor of EthicsCase
+        super (caseTitle, description, "Algorithm Bias and Fairness"); // Passes along the title and description, and hardcodes the category
+        this.biasType = biasType; // Initializes biasType with the value that is passed into the constructor
     }
     
-    public String getBiasType() {
-        return biasType;
+    /**
+     * Getter method to get the bias type
+     * @return 
+     */
+    public String getBiasType() { // The string representing the bias type
+        return biasType; // Returns the bias type
     }
     
-    public String toString (){
-        return super.toString() + " Bias Type: " + biasType;
+    /**
+     * The string representation of the AlgorithmCase object
+     * @return A string displaying the bias type
+     */
+    public String toString (){ // Convert to string
+        return super.toString() + " Bias Type: " + biasType; // Return the bias type
     }
 }

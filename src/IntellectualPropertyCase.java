@@ -4,7 +4,7 @@
  */
 
 /**
- *
+ * 
  * @author 345730287
  */
 public class IntellectualPropertyCase extends EthicsCase{

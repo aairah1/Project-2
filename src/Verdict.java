@@ -14,11 +14,14 @@ public class Verdict {
     
     public Verdict() {
         this.studentVerdict = "empty";
+        this.caseName = "empty";
+        this.reason = "empty";
     }
     
     public Verdict(String caseName, String verdict, String reason) {
         this.caseName = caseName;
-        this.studentVerdict = studentVerdict;
+        this.studentVerdict = verdict;
+        this.reason = reason;
     }
     
     public void setCaseName(String title) {

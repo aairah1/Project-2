@@ -4,6 +4,10 @@
  */
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
+import java.io.File;
+import java.io.PrintWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  *
@@ -25,11 +29,12 @@ public class Scenario8 extends javax.swing.JFrame {
                     System.out.println("JFrame is now focused!");
                     //add code here
                     jLabel2.setText(MainMenu.cases[7].getCaseTitle());
-                    jLabel4.setText(MainMenu.cases[7].getCatergory());
+                    jLabel4.setText(MainMenu.cases[7].getCategory());
                     jTextArea2.setText(MainMenu.cases[7].getCaseDescription());
                 }
             });
-
+        
+            
     }
 
     /**
@@ -161,7 +166,7 @@ public class Scenario8 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         MainMenu.cases[7].verdict.setCaseName(jLabel2.getText());
-        MainMenu.cases[7].verdict.setReason(jTextArea2.getText());
+        MainMenu.cases[7].verdict.setReason(jTextArea1.getText());
         if (jRadioButton1.isSelected()) {
             MainMenu.cases[7].verdict.setStudentVerdict("Ethical");
             MainMenu.ethical +=1;
@@ -169,11 +174,34 @@ public class Scenario8 extends javax.swing.JFrame {
             MainMenu.cases[7].verdict.setStudentVerdict("Unethical");
             MainMenu.unethical += 1;
         }
+        saveVerdicts();
         
         new Results().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public static void saveVerdicts() {
+        try {
+            FileWriter w = new FileWriter ("verdict.txt", true);
+            PrintWriter fileOutput = new PrintWriter(w);
+            for (int i = 0; i < MainMenu.cases.length; i++) {
+                String caseName = MainMenu.cases[i].verdict.getCaseName();
+                String verdictStatus = MainMenu.cases[i].verdict.getStudentVerdict();
+                String reason = MainMenu.cases[i].verdict.getReason();
+
+                fileOutput.print("Case " + (i + 1) + ": " + caseName);
+                fileOutput.print(" Verdict: " + verdictStatus);
+                fileOutput.print(" Reason: " + reason);
+                fileOutput.println(" ");
+            }
+            fileOutput.println(" -------------- ");
+            fileOutput.close();
+
+        } catch (IOException e) {
+            System.out.println("Error writing to verdict.txt");
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */

@@ -25,7 +25,7 @@ public class Scenario7 extends javax.swing.JFrame {
                     System.out.println("JFrame is now focused!");
                     //add code here
                     jLabel2.setText(MainMenu.cases[6].getCaseTitle());
-                    jLabel4.setText(MainMenu.cases[6].getCatergory());
+                    jLabel4.setText(MainMenu.cases[6].getCategory());
                     jTextArea2.setText(MainMenu.cases[6].getCaseDescription());
                 }
             });
@@ -160,7 +160,7 @@ public class Scenario7 extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         MainMenu.cases[6].verdict.setCaseName(jLabel2.getText());
-        MainMenu.cases[6].verdict.setReason(jTextArea2.getText());
+        MainMenu.cases[6].verdict.setReason(jTextArea1.getText());
         if (jRadioButton1.isSelected()) {
             MainMenu.cases[6].verdict.setStudentVerdict("Ethical");
             MainMenu.ethical +=1;

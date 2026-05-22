@@ -2,60 +2,45 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-import java.io.File;
-import java.util.Scanner;
-import java.io.IOException;
+import java.io.File; // import the java File
+import java.util.Scanner; // import the java Scanner
+import java.io.IOException; // import the java IO Exception
 /**
  *
  * @author 345730287
  */
-public class MainMenu extends javax.swing.JFrame {
-public static EthicsCase[] cases = new EthicsCase[8];
-public static int unethical = 0;
-public static int ethical = 0;
+public class MainMenu extends javax.swing.JFrame { // make the main menu class and make it an extension of the jFrame
+public static EthicsCase[] cases = new EthicsCase[8]; // create a public static ethics case array of size 8
+public static int unethical = 0; // create a public static counter for all the unethical choices 
+public static int ethical = 0; // create a public static counter for all the ethical choices
     
     /**
      * Creates new form MainMenu
      */
-    public MainMenu() {
-        initComponents();
-        try {
-            Scanner fileinput = new Scanner (new File ("cases"));
-            int count = 0;
-            while (fileinput.hasNext()){
-                String output = fileinput.nextLine();
-                String info [] = output.split(",");  
-                if (info[0].equals("Privacy Case")){
-                    cases [count] = new PrivacyCase (info[1].trim(), info[3].trim(), info[2].trim());
-                } else if (info[0].equals("Misinformation Case")){
-                    cases [count] = new MisinformationCase (info[1].trim(), info[3].trim(), info[2].trim());
-                } else if (info[0].equals("Intellectual Property Case")){
-                    cases [count] = new IntellectualPropertyCase (info[1].trim(), info[3].trim(), info[2].trim());
-                } else if (info[0].equals("Algorithm Case")){
-                    cases [count] = new AlgorithmCase (info[1].trim(), info[3].trim(), info[2].trim());
-                }
-                count++;
-            }
-            fileinput.close();
-        } catch (IOException ioException) {
-            System.out.print("Error: IO Exception");
-        }
-    }
-    
-    public class MainMenu extends javax.swing.JFrame {
-    public static void main (String[] args) {
-        String caseName = " ";
-        String studentVerdict = " ";
-        String reason = " ";
-        try {
-            FileWriter writer = new FileWriter ("cases", true);
-            PrintWriter output = new PrintWriter (writer);
-            output.printf("Case: %s | Verdict: %s | Reason: %s\n", caseName, studentVerdict, reason);
-            output.close();
-        } catch (IOException ioException) {
-            System.err.println("Java Exception: " + ioException);
-        }
-        }
+    public MainMenu() { // begin main menu class
+        initComponents(); // contain all the components
+        try { // try the code below to check for runtime errors
+            Scanner fileinput = new Scanner (new File ("cases")); // create a scanner object for the file cases
+            int count = 0; // create a counter object, initializing it to 0
+            while (fileinput.hasNext()){ // while the file has a next line
+                String output = fileinput.nextLine(); // put the line into a string
+                String info [] = output.split(",");   // put the string into an array, splitting it at the comma
+                if (info[0].equals("Privacy Case")){ // if the case type is Privacy case
+                    cases [count] = new PrivacyCase (info[1].trim(), info[3].trim(), info[2].trim()); // make an object in the array of the same type, storing all the given info
+                } else if (info[0].equals("Misinformation Case")){ // if the case type in Misinformation case
+                    cases [count] = new MisinformationCase (info[1].trim(), info[3].trim(), info[2].trim()); // make an object in the array of the same type, storing all the given info
+                } else if (info[0].equals("Intellectual Property Case")){ // if the case type is Intellectual property case
+                    cases [count] = new IntellectualPropertyCase (info[1].trim(), info[3].trim(), info[2].trim()); // make an object in the array of the same type, storing all the given info
+                } else if (info[0].equals("Algorithm Case")){ // if the case type is Algorithm case
+                    cases [count] = new AlgorithmCase (info[1].trim(), info[3].trim(), info[2].trim()); // make an object in the array of the same type, storing all the given info
+                } // end the if statements
+                count++; // increment the counter by 1
+            } // close the while loop
+            fileinput.close(); // clsoe the scanner
+        } catch (IOException ioException) { // catch for an io exception
+            System.out.print("Error: IO Exception"); // if caught, display an error message
+        } // close the try-catch
+    } // close the main menu class
     
 
     /**
@@ -157,8 +142,8 @@ public static int ethical = 0;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        new Scenario1().setVisible(true);
-        this.setVisible(false);
+        new Scenario1().setVisible(true); // set the next page as visible
+        this.setVisible(false); // make this page invisible
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

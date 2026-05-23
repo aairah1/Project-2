@@ -2,35 +2,33 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent; // import the window event
+import java.awt.event.WindowAdapter; // import the window adapter
 
 /**
  *
  * @author 345730287
  */
-public class Scenario2 extends javax.swing.JFrame {
+public class Scenario2 extends javax.swing.JFrame { // scenario2 class extemds the jframe
 
     /**
-     * Creates new form Scenario1
+     * Creates new form Scenario2
      */
-    public Scenario2() {
-        initComponents();
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setWrapStyleWord(true);
+    public Scenario2() { // beginning the scenario2 class
+        initComponents(); // the components in it
+        jTextArea2.setLineWrap(true); // make the line wrap true
+        jTextArea2.setWrapStyleWord(true); // make the wrap style true
         
-            addWindowListener(new WindowAdapter() {
-                @Override
-                public void windowActivated(WindowEvent e) {
-                    System.out.println("JFrame is now focused!");
-                    //add code here
-                    jLabel2.setText(MainMenu.cases[1].getCaseTitle());
-                    jLabel4.setText(MainMenu.cases[1].getCategory());
-                    jTextArea2.setText(MainMenu.cases[1].getCaseDescription());
-                }
-            });
+            addWindowListener(new WindowAdapter() { // add Window Listener 
+                @Override // override command
+                public void windowActivated(WindowEvent e) { // activate the window
+                    jLabel2.setText(MainMenu.cases[1].getCaseTitle()); // set the text as the case title
+                    jLabel4.setText(MainMenu.cases[1].getCategory()); // set the text as the case category
+                    jTextArea2.setText(MainMenu.cases[1].getCaseDescription()); // set the text as the case description
+                } // close
+            }); // close
 
-    }
+    } // close
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -159,20 +157,19 @@ public class Scenario2 extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:        
-        MainMenu.cases[0].verdict.setCaseName(jLabel2.getText());
-        MainMenu.cases[1].verdict.setReason(jTextArea1.getText());
-        if (jRadioButton1.isSelected()) {
-            MainMenu.cases[1].verdict.setStudentVerdict("Ethical");
-            MainMenu.ethical += 1;
-        } else if (jRadioButton2.isSelected()) {
-            MainMenu.cases[1].verdict.setStudentVerdict("Unethical");
-            MainMenu.unethical += 1;
-        }       
+        MainMenu.cases[1].verdict.setCaseName(jLabel2.getText()); // set the case 1 array verdict case name as the text in jLabel2
+        MainMenu.cases[1].verdict.setReason(jTextArea1.getText()); // set the case 1 array cerdict case reason as the text area
+        if (jRadioButton1.isSelected()) { // if the first radio button is selected
+            MainMenu.cases[1].verdict.setStudentVerdict("Ethical"); // set the case 1 verdict to be ethical
+            MainMenu.ethical += 1; // increment the ethical counter by 1
+        } else if (jRadioButton2.isSelected()) { // else, if the second radio button is selected
+            MainMenu.cases[1].verdict.setStudentVerdict("Unethical"); // set the case 1 verdict to be unethical
+            MainMenu.unethical += 1; // increment the unethical counter by 1
+        } // end the if statements       
         
        
-        new Scenario3().setVisible(true);
-        this.setVisible(false);
+        new Scenario3().setVisible(true); // make the next frame visible
+        this.setVisible(false); // make this frame invisible
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -205,7 +202,7 @@ public class Scenario2 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Scenario1().setVisible(true);
+                new Scenario2().setVisible(true); // make this frame visible
             }
         });
     }

@@ -7,28 +7,28 @@
  *
  * @author 343079463
  */
-public class Results extends javax.swing.JFrame {
+public class Results extends javax.swing.JFrame { // class results which extends the Jframe
 
     /**
      * Creates new form Results
      */
-    public Results() {
-        initComponents();
-        formatTextArea();
+    public Results() { // results constructor
+        initComponents(); // the components inside the constructor
+        formatTextArea(); // method to format the text Area
         
-        jLabel3.setText("" + MainMenu.ethical);
-        jLabel4.setText("" + MainMenu.unethical);
+        jLabel3.setText("" + MainMenu.ethical); // set the text to show the amount of ethical chosen by the user
+        jLabel4.setText("" + MainMenu.unethical); // set the text to show the amount of unethical chosen by the user
         
-        if (MainMenu.unethical < 2){
-            jTextArea1.setText("The Tech Optimist" + "\n You see technology as largely a force for good. You tend to trust that companies and developers have good intentions.");
-        } else if ((MainMenu.unethical <= 4) && (MainMenu.unethical > 2)){
-            jTextArea1.setText("The Cautious Realist" + "\n You see both the benefits and dangers of technology. You believe progress is good, but needs rules and accountability.");
-        } else if ((MainMenu.unethical <= 6) && (MainMenu.unethical > 4)){
-            jTextArea1.setText("The Critical Thinker" + "\n You are skeptical of how technology is being used. You believe the tech industry needs serious reform to protect people.");
-        } else if ((MainMenu.unethical <= 8) && (MainMenu.unethical > 6)){
-            jTextArea1.setText(" The Ethics Watchdog" + "\n You believe technology is causing more harm than good right now. You think strong laws and ethical standards are urgently needed.");
-        }
-    }
+        if (MainMenu.unethical < 2){ // if the amount of unethical chosen is less than two
+            jTextArea1.setText("The Tech Optimist" + "\n You see technology as largely a force for good. You tend to trust that companies and developers have good intentions."); //display this message to the user
+        } else if ((MainMenu.unethical <= 4) && (MainMenu.unethical > 2)){ // if the amount of unethical chosen is greater than 2 and less than or including 4
+            jTextArea1.setText("The Cautious Realist" + "\n You see both the benefits and dangers of technology. You believe progress is good, but needs rules and accountability."); // display this message to the user
+        } else if ((MainMenu.unethical <= 6) && (MainMenu.unethical > 4)){ // if the amount of unethical chosen is greater than 4 and less than or including 6
+            jTextArea1.setText("The Critical Thinker" + "\n You are skeptical of how technology is being used. You believe the tech industry needs serious reform to protect people."); // display this message to the user
+        } else if ((MainMenu.unethical <= 8) && (MainMenu.unethical > 6)){// if the amount chosen is greater than 6 and less than or including 8 
+            jTextArea1.setText(" The Ethics Watchdog" + "\n You believe technology is causing more harm than good right now. You think strong laws and ethical standards are urgently needed."); // display this message
+        } // end if
+    } // end results
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -127,8 +127,8 @@ public class Results extends javax.swing.JFrame {
         jTextArea1.setBackground(null); // make the backround null
         jTextArea1.setOpaque(false); // make the background not opaque
         jTextArea1.setBorder(null); // make the borders null
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setWrapStyleWord(true);
+        jTextArea1.setLineWrap(true); // make the line wrap true
+        jTextArea1.setWrapStyleWord(true); // make the wrap style true
     } // close the method
     
     /**
@@ -161,7 +161,7 @@ public class Results extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Results().setVisible(true);
+                new Results().setVisible(true); // make te results page visible
             }
         });
     }

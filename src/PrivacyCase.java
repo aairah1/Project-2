@@ -7,20 +7,34 @@
  *
  * @author 343079463
  */
-public class PrivacyCase extends EthicsCase{
+public class PrivacyCase extends EthicsCase{ // child class (inheritance) that extends EthicsCase
     
-    private String dataType;
+    private String dataType; // private instance variable dataType
     
-    public PrivacyCase (String caseTitle, String description, String dataType){
-        super(caseTitle, description, "Privacy and Data protection");
-        this.dataType = dataType;
-    }
+    /**
+     * Constructor to set the case details
+     * @param caseTitle the title of the case
+     * @param description the description of the case
+     * @param dataType the data type of the case
+     */
+    public PrivacyCase (String caseTitle, String description, String dataType){ // beginning of the privacyCase constructor
+        super(caseTitle, description, "Privacy and Data protection"); // set the caseTitle and description from the parent class
+        this.dataType = dataType; // set this data type as the entered data type
+    } // close the constructor
     
-    public String getDataType(){
-        return dataType;
-    }
+    /**
+     * Getter method for the data type
+     * @return dataType 
+     */
+    public String getDataType(){ // beginning of the getter method for the data type
+        return dataType; // return the data type
+    } // close the getter method
     
-    public String toString(){
-        return super.toString() + " Data Type: " + dataType;
-    }
+    /**
+     * toString method to state all of the case's details
+     * @return case details
+     */
+    public String toString(){ // begin the toString method to return all the default case information
+        return super.toString() + " Data Type: " + dataType; // return the parent class toString message with the addition of the data type
+    }// close the toString method
 }

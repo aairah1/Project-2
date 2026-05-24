@@ -2,14 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent; // import the window event
+import java.awt.event.WindowAdapter; // import the window adapter
 
 /**
  *
  * @author 345730287
  */
-public class Scenario6 extends javax.swing.JFrame {
+public class Scenario6 extends javax.swing.JFrame { // scenario6 class extends jframe
 
     /**
      * Creates new form Scenario6
@@ -23,7 +23,7 @@ public class Scenario6 extends javax.swing.JFrame {
                 @Override // override command
                 public void windowActivated(WindowEvent e) { // activate the window
                     jLabel2.setText(MainMenu.cases[5].getCaseTitle()); // set the text as the case title
-                    jLabel4.setText(MainMenu.cases[5].getCategory()); // set the text as the case category
+                    jLabel4.setText(MainMenu.cases[5].getCategory()); // set the text as the case category 
                     jTextArea2.setText(MainMenu.cases[5].getCaseDescription()); // set the text as the case description
                 } // close
             }); // close
@@ -168,14 +168,13 @@ public class Scenario6 extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         MainMenu.cases[5].verdict.setCaseName(jLabel2.getText()); // set the case 5 array verdict case name as the text in jLabel2
         MainMenu.cases[5].verdict.setReason(jTextArea1.getText()); // set the case 5 array cerdict case reason as the text area
         if (jRadioButton1.isSelected()) { // if the first radio button is selected
-            MainMenu.cases[5].verdict.setStudentVerdict(Verdict.ethical); // set the case 5 verdict to be ethical
+            MainMenu.cases[5].verdict.setStudentVerdict(MainMenu.Sethical); // set the case 5 verdict to be ethical
             MainMenu.ethical +=1; // increment the ethical counter by 1
         } else if (jRadioButton2.isSelected()) { // else, if the second radio button is selected
-            MainMenu.cases[5].verdict.setStudentVerdict(Verdict.unethical); // set the case 5 verdict to be unethical
+            MainMenu.cases[5].verdict.setStudentVerdict(MainMenu.Sunethical); // set the case 5 verdict to be unethical
             MainMenu.unethical += 1; // increment the unethical counter by 1
         } // end the if statements
         
@@ -213,7 +212,7 @@ public class Scenario6 extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Scenario1().setVisible(true);
+                new Scenario6().setVisible(true); // make this page visible
             }
         });
     }

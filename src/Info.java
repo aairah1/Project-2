@@ -1,9 +1,9 @@
 
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Scanner;
+import java.io.File; // import the java File
+import java.io.FileWriter; // import FileWriter
+import java.io.IOException; // import the io exception
+import java.io.PrintWriter; // import PrintWriter
+import java.util.Scanner; // import the scanner
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -14,7 +14,7 @@ import java.util.Scanner;
  *
  * @author Aairah Ahmeed
  */
-public class Info extends javax.swing.JFrame { 
+public class Info extends javax.swing.JFrame { // info class extends the jframe
 
     /**
      * Creates new form Info
@@ -159,67 +159,74 @@ public class Info extends javax.swing.JFrame {
     /**
      * Gets the user's name and their answers, then writes it to "verdict.txt"
      */
-    public void saveVerdicts() {
-        try {
+    public void saveVerdicts() { // begin the verdict method
+        try { // try the code below
             String name = jTextField1.getText(); // Get the name that the user typed into the text box
             // Open the file and add to the end instead of deleting previous text
-            FileWriter w = new FileWriter ("verdict.txt", true);
-            PrintWriter fileOutput = new PrintWriter(w);
+            FileWriter w = new FileWriter ("verdict.txt", true); // create the file writer for the verdict.txt file
+            PrintWriter fileOutput = new PrintWriter(w); // create the printwriter for the filewriter
             // Write the user's name
-            fileOutput.print(name + "'s Answers: \n");
+            fileOutput.print(name + "'s Answers: \n"); // add the users name to the file to sepearte the answers
             // Go through each case stored in the MainMenu program
-            for (int i = 0; i < MainMenu.cases.length; i++) {
-                String caseName = MainMenu.cases[i].verdict.getCaseName();
-                String verdictStatus = MainMenu.cases[i].verdict.getStudentVerdict();
-                String reason = MainMenu.cases[i].verdict.getReason();
+            for (int i = 0; i < MainMenu.cases.length; i++) { // go through the code below so long as the file has a next line
+                String caseName = MainMenu.cases[i].verdict.getCaseName(); // store the case name form the array in a string variable
+                String verdictStatus = MainMenu.cases[i].verdict.getStudentVerdict(); // store the student verdict from the array in a string variable
+                String reason = MainMenu.cases[i].verdict.getReason(); // store the student reason from the array in a String variable
                 // Write the case details into the file
-                fileOutput.print("Case " + (i + 1) + ": " + caseName);
-                fileOutput.print("\t Verdict: " + verdictStatus);
-                fileOutput.print("\t Reason: " + reason);
-                fileOutput.println(" ");
-            }
-            fileOutput.println(" -------------- ");
+                fileOutput.print("Case " + (i + 1) + ": " + caseName); // Print the case number
+                fileOutput.print("\t Verdict: " + verdictStatus); // print the verdict
+                fileOutput.print("\t Reason: " + reason); // print the reason
+                fileOutput.println(" "); // print a spacing for formatting
+            } // close the for loop
+            fileOutput.println(" -------------- "); // print for formatting
             fileOutput.close(); // // Close the file when finished saving
 
-        } catch (IOException e) {
+        } catch (IOException e) { // catch the io exception if there is one
             System.out.println("Error writing to verdict.txt"); // Error message
-        }
-    }
+        } // close the try-catch
+    } // close the method
     
-    public void displayCases(){
+    /**
+     * Method to polymorphically display all saved cases in the text area by
+     * fetching their specific toString data from the array.
+     */
+    public void displayCases() { // beginning of method to display the cases
+        jTextArea1.setText(""); // clear the text area to prevent duplicating text on multiple clicks
+        int count = 1; // create a case number counter, initializing it to 1
+
+        try { // try the code block below to safeguard against potential array issues
+            for (int i = 0; i < MainMenu.cases.length; i++) { // loop through the entire cases array
+                if (MainMenu.cases[i] != null) { // check if the current array index contains a valid object
+
+                    String caseDetails = MainMenu.cases[i].toString(); // polymorphic call to automatically fetch the correct child class toString text
+                    jTextArea1.append( // append the formatted case information into the jTextArea1
+                        "Case " + count + // append the case and number
+                        "\n" + caseDetails + "\n\n" // display the unique text returned from the object's toString method
+                    ); // close the append method
+                    
+                    count++; // increment the case number counter by 1
+                } // end the if statement for null checking
+            } // close the for loop
+        } catch (Exception exception) { // catch general exceptions to ensure stability
+            System.out.print("Error displaying cases: " + exception.getMessage()); // if caught, display an error message to console
+        } // close the try-catch block
+    } // close the displayCases method
+    
+    /**
+     * Method to display all the verdicts from the file 
+     */
+    public void displayVerdicts(){ // begin the method to displayVerdicts
         try { // try the code below to check for runtime errors
-            Scanner fileinput = new Scanner (new File ("cases")); // create a scanner object for the file cases
-            int count = 1;
+            Scanner fileinput = new Scanner (new File ("verdict.txt")); // create a scanner object for the file cases
             while (fileinput.hasNext()){ // while the file has a next line
-                String output = fileinput.nextLine();
-                String info [] = output.split(",");
-                jTextArea1.append(
-                        "Case " + count +
-                        "\n Type: " + info[0].trim() +
-                        "\n Title: " + info[1].trim() +
-                        "\n Description: " + info[3].trim() +
-                        "\n\n"
-                );
-                count++;
-            }
+                String output = fileinput.nextLine(); // input the line into a String
+                jTextArea2.append(output + "\n\n"); // append the string with formatting into the text area
+            } // close the while loop
             fileinput.close(); // close the scanner
         } catch (IOException ioException) { // catch for an io exception
             System.out.print("Error: IO Exception"); // if caught, display an error message
         } // close the try-catch
-    }
-    
-    public void displayVerdicts(){
-        try { // try the code below to check for runtime errors
-            Scanner fileinput = new Scanner (new File ("verdict.txt")); // create a scanner object for the file cases
-            while (fileinput.hasNext()){ // while the file has a next line
-                String output = fileinput.nextLine();
-                jTextArea2.append(output + "\n\n");
-            }
-            fileinput.close(); // clsoe the scanner
-        } catch (IOException ioException) { // catch for an io exception
-            System.out.print("Error: IO Exception"); // if caught, display an error message
-        } // close the try-catch
-    }
+    } // close the method
 
     public void formatTextArea() { // create a method to format the text area (no return and no parameter) 
         jTextArea1.setEditable(false); // make it uneditable

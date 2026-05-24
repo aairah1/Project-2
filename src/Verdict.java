@@ -7,14 +7,11 @@
  *
  * @author 345730287
  */
-public class Verdict {
+public class Verdict { // begin the class verdict
     // Variables that hold the info for a case decision
     private String caseName; // String for name of the case
     private String studentVerdict; // String for the student's verdict
     private String reason; // String for the reason on selected choice
-    // Constant words so that "Ethical" or "Unethical" isn't misspelled later
-    public static final String ethical = "Ethical"; 
-    public static final String unethical = "Unethical";
     
     /**
      * runs when making a blank verdict with placeholder text

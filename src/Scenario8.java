@@ -4,10 +4,7 @@
  */
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowAdapter;
-import java.io.File;
-import java.io.PrintWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+
 
 /**
  *
@@ -177,10 +174,10 @@ public class Scenario8 extends javax.swing.JFrame {
         MainMenu.cases[7].verdict.setCaseName(jLabel2.getText()); // set the case 6 array verdict case name as the text in jLabel2
         MainMenu.cases[7].verdict.setReason(jTextArea1.getText()); // set the case 6 array cerdict case reason as the text area
         if (jRadioButton1.isSelected()) { // if the first radio button is selected
-            MainMenu.cases[7].verdict.setStudentVerdict(Verdict.ethical); // set the case 6 verdict to be ethical
+            MainMenu.cases[7].verdict.setStudentVerdict(MainMenu.Sethical); // set the case 6 verdict to be ethical
             MainMenu.ethical +=1; // increment the ethical counter by 1
         } else if (jRadioButton2.isSelected()) { // else, if the second radio button is selected
-            MainMenu.cases[7].verdict.setStudentVerdict(Verdict.unethical); // set the case 6 verdict to be unethical
+            MainMenu.cases[7].verdict.setStudentVerdict(MainMenu.Sunethical); // set the case 6 verdict to be unethical
             MainMenu.unethical += 1; // increment the unethical counter by 1
         } // end the if statements
         

@@ -172,10 +172,10 @@ public class Scenario1 extends javax.swing.JFrame { // scanerio1 extends the jfr
         MainMenu.cases[0].verdict.setCaseName(jLabel2.getText()); // make the verdict case name to be the text of the jLabel2
         MainMenu.cases[0].verdict.setReason(jTextArea1.getText()); // make the case verdict in the array's reaosn as the entered text 
         if (jRadioButton1.isSelected()) { // if the first radio button is selected
-            MainMenu.cases[0].verdict.setStudentVerdict(Verdict.ethical); // set the case verdict to be ethical
+            MainMenu.cases[0].verdict.setStudentVerdict(MainMenu.Sethical); // set the case verdict to be ethical
             MainMenu.ethical += 1; // increase the ethical variable count by 1
         } else if (jRadioButton2.isSelected()) { // if the second radio button is selected
-            MainMenu.cases[0].verdict.setStudentVerdict(Verdict.unethical); // set the case verdict as unethical
+            MainMenu.cases[0].verdict.setStudentVerdict(MainMenu.Sunethical); // set the case verdict as unethical
             MainMenu.unethical += 1; // increase the unethical variable count by 1
         } // end if
         
@@ -183,6 +183,8 @@ public class Scenario1 extends javax.swing.JFrame { // scanerio1 extends the jfr
         this.setVisible(false); // make this page invisible
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    
     /**
      * @param args the command line arguments
      */

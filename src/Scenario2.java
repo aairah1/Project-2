@@ -23,7 +23,7 @@ public class Scenario2 extends javax.swing.JFrame { // scenario2 class extemds t
                 @Override // override command
                 public void windowActivated(WindowEvent e) { // activate the window
                     jLabel2.setText(MainMenu.cases[1].getCaseTitle()); // set the text as the case title
-                    jLabel4.setText(MainMenu.cases[1].getCategory()); // set the text as the case category
+                    jLabel4.setText(MainMenu.cases[1].getCategory());
                     jTextArea2.setText(MainMenu.cases[1].getCaseDescription()); // set the text as the case description
                 } // close
             }); // close
@@ -171,10 +171,10 @@ public class Scenario2 extends javax.swing.JFrame { // scenario2 class extemds t
         MainMenu.cases[1].verdict.setCaseName(jLabel2.getText()); // set the case 1 array verdict case name as the text in jLabel2
         MainMenu.cases[1].verdict.setReason(jTextArea1.getText()); // set the case 1 array cerdict case reason as the text area
         if (jRadioButton1.isSelected()) { // if the first radio button is selected
-            MainMenu.cases[1].verdict.setStudentVerdict(Verdict.ethical); // set the case 1 verdict to be ethical
+            MainMenu.cases[1].verdict.setStudentVerdict(MainMenu.Sethical); // set the case 1 verdict to be ethical
             MainMenu.ethical += 1; // increment the ethical counter by 1
         } else if (jRadioButton2.isSelected()) { // else, if the second radio button is selected
-            MainMenu.cases[1].verdict.setStudentVerdict(Verdict.unethical); // set the case 1 verdict to be unethical
+            MainMenu.cases[1].verdict.setStudentVerdict(MainMenu.Sunethical); // set the case 1 verdict to be unethical
             MainMenu.unethical += 1; // increment the unethical counter by 1
         } // end the if statements       
         

@@ -13,6 +13,10 @@ public class MainMenu extends javax.swing.JFrame { // make the main menu class a
 public static EthicsCase[] cases = new EthicsCase[8]; // create a public static ethics case array of size 8
 public static int unethical = 0; // create a public static counter for all the unethical choices 
 public static int ethical = 0; // create a public static counter for all the ethical choices
+
+// Constant words so that "Ethical" or "Unethical" isn't misspelled later
+public static final String Sethical = "Ethical";  // constant to print ethical
+public static final String Sunethical = "Unethical"; // constant to print unethical
     
     /**
      * Creates new form MainMenu
@@ -146,6 +150,7 @@ public static int ethical = 0; // create a public static counter for all the eth
         this.setVisible(false); // make this page invisible
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
     /**
      * @param args the command line arguments
      */
@@ -176,7 +181,7 @@ public static int ethical = 0; // create a public static counter for all the eth
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainMenu().setVisible(true);
+                new MainMenu().setVisible(true); // make this page visible
             }
         });
     }

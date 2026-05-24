@@ -93,6 +93,6 @@ public class Verdict {
      */
     public String toString() { // toString method to return the information formatted when called upon
         return "Name: " + caseName + " Verdict: " + studentVerdict + " Reason: " + reason; // Returns the case details
-    } // close the method
+    } // closes method
     
 } // closes the main

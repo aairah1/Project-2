@@ -12,6 +12,9 @@ public class Verdict {
     private String studentVerdict;
     private String reason;
     
+    public static final String ethical = "Ethical";
+    public static final String unethical = "Unethical";
+    
     public Verdict() {
         this.studentVerdict = "empty";
         this.caseName = "empty";
@@ -25,7 +28,7 @@ public class Verdict {
     }
     
     public void setCaseName(String title) {
-        this.caseName = caseName;
+        this.caseName = title;
     }
     
     public String getCaseName() {
@@ -41,7 +44,7 @@ public class Verdict {
     }
     
     public void setStudentVerdict(String verdict) {
-        this.studentVerdict = studentVerdict;
+        this.studentVerdict = verdict;
     }
     
     public String getStudentVerdict() {

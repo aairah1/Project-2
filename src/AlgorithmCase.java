@@ -34,6 +34,7 @@ public class AlgorithmCase extends EthicsCase { // child class (inheritance) ext
      * The string representation of the AlgorithmCase object
      * @return A string displaying the bias type
      */
+    @Override
     public String toString (){ // toString method to get an automatic string message
         return super.toString() + " Bias Type: " + biasType; // Return the bias type with the same message as the parent
     } // close the toString

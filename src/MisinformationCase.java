@@ -33,6 +33,7 @@ public class MisinformationCase extends EthicsCase{ // child class (inheritance)
      * Default string method for the basic case information
      * @return case details
      */
+    @Override
     public String toString() { // create the toString to call upon the default message 
         return super.toString() + " Media Type: " + mediaType; // return the parent toString information witht he media type
     } // close the toString    

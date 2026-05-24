@@ -34,6 +34,7 @@ public class PrivacyCase extends EthicsCase{ // child class (inheritance) that e
      * toString method to state all of the case's details
      * @return case details
      */
+    @Override
     public String toString(){ // begin the toString method to return all the default case information
         return super.toString() + " Data Type: " + dataType; // return the parent class toString message with the addition of the data type
     }// close the toString method

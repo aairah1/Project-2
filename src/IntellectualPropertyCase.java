@@ -33,6 +33,7 @@ public class IntellectualPropertyCase extends EthicsCase{ // child class (inheri
      * toString method to get all the case details
      * @return the case details
      */
+    @Override
     public String toString() { // toString method to set the default return if called upon
         return super.toString() + "Intellectual Property: " + ipType; // return the previous toString method with the ip type added
     } // close the toString

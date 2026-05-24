@@ -58,6 +58,7 @@ public class Scenario8 extends javax.swing.JFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
+        jProgressBar1 = new javax.swing.JProgressBar();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -102,32 +103,40 @@ public class Scenario8 extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+        jProgressBar1.setForeground(new java.awt.Color(0, 102, 102));
+        jProgressBar1.setValue(100);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel6)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel1)
-                                .addComponent(jLabel3))
-                            .addGap(47, 47, 47)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
-                                .addComponent(jLabel2)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jRadioButton1)
-                            .addGap(59, 59, 59)
-                            .addComponent(jRadioButton2)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(60, 60, 60)
-                        .addComponent(jButton1))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1))
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel3))
+                                    .addGap(47, 47, 47)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4)
+                                        .addComponent(jLabel2)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jRadioButton1)
+                                    .addGap(59, 59, 59)
+                                    .addComponent(jRadioButton2)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(60, 60, 60)
+                                .addComponent(jButton1))
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(68, 68, 68)
+                        .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -151,7 +160,9 @@ public class Scenario8 extends javax.swing.JFrame {
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(13, 13, 13))
         );
@@ -168,39 +179,17 @@ public class Scenario8 extends javax.swing.JFrame {
         MainMenu.cases[7].verdict.setCaseName(jLabel2.getText());
         MainMenu.cases[7].verdict.setReason(jTextArea1.getText());
         if (jRadioButton1.isSelected()) {
-            MainMenu.cases[7].verdict.setStudentVerdict("Ethical");
+            MainMenu.cases[7].verdict.setStudentVerdict(Verdict.ethical);
             MainMenu.ethical +=1;
         } else if (jRadioButton2.isSelected()) {
-            MainMenu.cases[7].verdict.setStudentVerdict("Unethical");
+            MainMenu.cases[7].verdict.setStudentVerdict(Verdict.unethical);
             MainMenu.unethical += 1;
         }
-        saveVerdicts();
         
-        new Results().setVisible(true);
+        new Info().setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    public static void saveVerdicts() {
-        try {
-            FileWriter w = new FileWriter ("verdict.txt", true);
-            PrintWriter fileOutput = new PrintWriter(w);
-            for (int i = 0; i < MainMenu.cases.length; i++) {
-                String caseName = MainMenu.cases[i].verdict.getCaseName();
-                String verdictStatus = MainMenu.cases[i].verdict.getStudentVerdict();
-                String reason = MainMenu.cases[i].verdict.getReason();
-
-                fileOutput.print("Case " + (i + 1) + ": " + caseName);
-                fileOutput.print(" Verdict: " + verdictStatus);
-                fileOutput.print(" Reason: " + reason);
-                fileOutput.println(" ");
-            }
-            fileOutput.println(" -------------- ");
-            fileOutput.close();
-
-        } catch (IOException e) {
-            System.out.println("Error writing to verdict.txt");
-        }
-    }
     
     /**
      * @param args the command line arguments
@@ -244,6 +233,7 @@ public class Scenario8 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;

@@ -14,22 +14,22 @@ public class Verdict { // begin the class verdict
     private String reason; // String for the reason on selected choice
     
     /**
-     * runs when making a blank verdict with placeholder text
+     * Constructor that runs when making a blank verdict with placeholder text
      */
-    public Verdict() {
+    public Verdict() { // beginning of the constructor with no parameters
         // Set all values to "empty" by default
-        this.studentVerdict = "empty"; 
-        this.caseName = "empty";
-        this.reason = "empty";
-    }
+        this.studentVerdict = "empty";  // make this studentVerdict empty
+        this.caseName = "empty"; // make this caseName empty
+        this.reason = "empty"; // make this reason empty
+    } // close the constructor
     
     /**
-     * Creates a verdict with the info
+     * Constructor that creates a verdict with the info
      * @param caseName The name of the case
      * @param verdict The choice of either ethical or unethical
      * @param reason The reason for the choice
      */
-    public Verdict(String caseName, String verdict, String reason) {
+    public Verdict(String caseName, String verdict, String reason) { // beginning of the constructor
         // Save the given data into these variables
         this.caseName = caseName; // The name of the case
         this.studentVerdict = verdict; // The user's choice of ethical or unethical

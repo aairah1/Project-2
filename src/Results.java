@@ -14,6 +14,13 @@ public class Results extends javax.swing.JFrame { // class results which extends
      */
     public Results() { // results constructor
         initComponents(); // the components inside the constructor
+        // loop through each case and call getCaseSummary() polymorphically
+        for (EthicsCase c : MainMenu.cases) {
+            if (c != null) { // check that the case is not null before calling
+                System.out.println(c.getCaseSummary()); // calls the correct subclass toString() based on object type
+            }
+        } // close loop
+        
         formatTextArea(); // method to format the text Area
         
         jLabel3.setText("" + MainMenu.ethical); // set the text to show the amount of ethical chosen by the user

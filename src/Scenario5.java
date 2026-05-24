@@ -12,25 +12,23 @@ import java.awt.event.WindowAdapter;
 public class Scenario5 extends javax.swing.JFrame {
 
     /**
-     * Creates new form Scenario1
+     * Creates new form Scenario5
      */
-    public Scenario5() {
-        initComponents();
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setWrapStyleWord(true);
+    public Scenario5() { // Scenario5 constructor
+        initComponents(); // the components in it
+        jTextArea2.setLineWrap(true); // make the line wrap true
+        jTextArea2.setWrapStyleWord(true); // make the wrap style true
         
-            addWindowListener(new WindowAdapter() {
-                @Override
-                public void windowActivated(WindowEvent e) {
-                    System.out.println("JFrame is now focused!");
-                    //add code here
-                    jLabel2.setText(MainMenu.cases[4].getCaseTitle());
-                    jLabel4.setText(MainMenu.cases[4].getCategory());
-                    jTextArea2.setText(MainMenu.cases[4].getCaseDescription());
-                }
-            });
+            addWindowListener(new WindowAdapter() { // add Window Listener
+                @Override // override command
+                public void windowActivated(WindowEvent e) { // activate the window
+                    jLabel2.setText(MainMenu.cases[4].getCaseTitle()); // set the text as the case title
+                    jLabel4.setText(MainMenu.cases[4].getCategory()); // set the text as the case category
+                    jTextArea2.setText(MainMenu.cases[4].getCaseDescription()); // set the text as the case description
+                } // close
+            }); // close
 
-    }
+    } // close
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -171,18 +169,18 @@ public class Scenario5 extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainMenu.cases[4].verdict.setCaseName(jLabel2.getText());
-        MainMenu.cases[4].verdict.setReason(jTextArea1.getText());
-        if (jRadioButton1.isSelected()) {
-            MainMenu.cases[4].verdict.setStudentVerdict(Verdict.ethical);
-            MainMenu.ethical +=1;
-        } else if (jRadioButton2.isSelected()) {
-            MainMenu.cases[4].verdict.setStudentVerdict(Verdict.unethical);
-            MainMenu.unethical += 1;
-        }
+        MainMenu.cases[4].verdict.setCaseName(jLabel2.getText()); // set the case 4 array verdict case name as the text in jLabel2
+        MainMenu.cases[4].verdict.setReason(jTextArea1.getText()); // set the case 4 array cerdict case reason as the text area
+        if (jRadioButton1.isSelected()) { // if the first radio button is selected
+            MainMenu.cases[4].verdict.setStudentVerdict(Verdict.ethical); // set the case 4 verdict to be ethical
+            MainMenu.ethical +=1; // increment the ethical counter by 1
+        } else if (jRadioButton2.isSelected()) { // else, if the second radio button is selected
+            MainMenu.cases[4].verdict.setStudentVerdict(Verdict.unethical); // set the case 4 verdict to be unethical
+            MainMenu.unethical += 1; // increment the unethical counter by 1
+        } // end the if statements
         
-        new Scenario6().setVisible(true);
-        this.setVisible(false);
+        new Scenario6().setVisible(true); // make the next frame visible
+        this.setVisible(false); // make this frame invisible
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

@@ -59,4 +59,12 @@ public class EthicsCase { // the main class for EthicsCase
     public String toString(){ // toString method to return the information formatted when called upon
         return "Title: " + caseTitle + " Description: " + description + " Category: " + category; // Returns the case details
     } // close the method
+    
+    /**
+     * Polymorphic method that returns a summary of the case
+     * @return A string summary of the case details based on the case type
+     */
+    public String getCaseSummary() { // polymorphic method that returns the case summary
+        return toString(); // calls the subclass toString() method based on the object type
+    } // closes the method
 } // close the main

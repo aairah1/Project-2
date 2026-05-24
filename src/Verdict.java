@@ -8,51 +8,91 @@
  * @author 345730287
  */
 public class Verdict {
-    private String caseName;
-    private String studentVerdict;
-    private String reason;
-    
-    public static final String ethical = "Ethical";
+    // Variables that hold the info for a case decision
+    private String caseName; // String for name of the case
+    private String studentVerdict; // String for the student's verdict
+    private String reason; // String for the reason on selected choice
+    // Constant words so that "Ethical" or "Unethical" isn't misspelled later
+    public static final String ethical = "Ethical"; 
     public static final String unethical = "Unethical";
     
+    /**
+     * runs when making a blank verdict with placeholder text
+     */
     public Verdict() {
-        this.studentVerdict = "empty";
+        // Set all values to "empty" by default
+        this.studentVerdict = "empty"; 
         this.caseName = "empty";
         this.reason = "empty";
     }
     
+    /**
+     * Creates a verdict with the info
+     * @param caseName The name of the case
+     * @param verdict The choice of either ethical or unethical
+     * @param reason The reason for the choice
+     */
     public Verdict(String caseName, String verdict, String reason) {
-        this.caseName = caseName;
-        this.studentVerdict = verdict;
-        this.reason = reason;
+        // Save the given data into these variables
+        this.caseName = caseName; // The name of the case
+        this.studentVerdict = verdict; // The user's choice of ethical or unethical
+        this.reason = reason; // The reason for the user's choice
     }
     
-    public void setCaseName(String title) {
-        this.caseName = title;
-    }
+    /**
+     * Changes the name of the case
+     * @param title The title or name of the case
+     */
+    public void setCaseName(String title) { // Setter method for the case's name
+        this.caseName = title; // Update the case name variable
+    } // Closes setter method
     
-    public String getCaseName() {
-        return caseName;
-    }
+    /**
+     * Returns back the name of the case.
+     * @return The case name string
+     */
+    public String getCaseName() { // Getter method for the case's name
+        return caseName; // Return the current case name
+    } // Closes getter method
     
-    public void setReason(String reason) {
-        this.reason = reason;
-    }
+    /**
+     * Changes the reason text
+     * @param reason The new explanation or reason
+     */
+    public void setReason(String reason) { // Setter method for the reason of case
+        this.reason = reason; // Update the reason variable
+    } // closes setter method
     
-    public String getReason() {
-        return reason;
-    }
+    /**
+     * Returns back the reason text
+     * @return The reason string
+     */
+    public String getReason() { // Getter method for the reason of case
+        return reason; // Return the current reason or explanation
+    } // Close getter method
     
-    public void setStudentVerdict(String verdict) {
-        this.studentVerdict = verdict;
-    }
+    /**
+     * Changes the user's choice
+     * @param verdict The choice made by the user (ethical or unethical)
+     */
+    public void setStudentVerdict(String verdict) { // Setter method for student's verdict or choice
+        this.studentVerdict = verdict; // Update the student verdict variable
+    } // Close setter method
     
-    public String getStudentVerdict() {
-        return studentVerdict;
-    }
+    /**
+     * Returns back the user's choice
+     * @return The student's choice of ethical or unethical
+     */
+    public String getStudentVerdict() { // Getter method for the student's verdict or choice
+        return studentVerdict; // Return the current student verdict
+    } // Close getter method
     
-    public String toString() {
-        return "Name: " + caseName + " Verdict: " + studentVerdict + " Reason: " + reason;
-    }
+    /**
+     * Returns a string representation of Verdict object
+     * @return A string that contains the name, student's choice, and reason for each case
+     */
+    public String toString() { // toString method to return the information formatted when called upon
+        return "Name: " + caseName + " Verdict: " + studentVerdict + " Reason: " + reason; // Returns the case details
+    } // close the method
     
-}
+} // closes the main
